@@ -99,6 +99,8 @@ public class dontTouchAnything : MonoBehaviour
             Text[0].characterSize = 0.15f;
             Text[0].text = "N";
             yield return new WaitForSeconds(0.25f);
+            Module.HandleStrike();
+            strikeBypass = false;
             Text[0].characterSize = 0.4f;
             Text[0].text = ".";
             Text[1].text = "";
@@ -399,7 +401,7 @@ public class dontTouchAnything : MonoBehaviour
                     }
                 }
         }
-        FakeStrikes = UnityEngine.Random.Range(0, 100);
+        FakeStrikes = UnityEngine.Random.Range(0, 100000);
         if (FakeStrikes == 0)
         {
             Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.Strike, Module.transform);
